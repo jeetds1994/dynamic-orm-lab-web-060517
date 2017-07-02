@@ -5,11 +5,14 @@ class InteractiveRecord
 
     attr_accessor :name, :grade, :id
 
-    def initialize(options={})
-       options.each do |property, value|
-         self.send("#{property}=", value)
-       end
-     end
+    def initialize(hash={})
+      @name = hash[:name]
+      @grade = hash[:grade]
+      hash[:id] ? @id = hash[:id] : @id = nil
+      # self.hash.each do |k,v|
+      #   self.send("#{k}=", v)
+      # end
+    end
 
     def self.table_name
        self.to_s.downcase + "s"
