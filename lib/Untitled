@@ -1,0 +1,23 @@
+word2guess = "Harry"
+
+temp = word2guess.split("").map {|x| nil}
+
+anything = word2guess.downcase
+
+letters_guessed = []
+
+for i in 0...6
+
+  input = gets.chomp
+
+  if word2guess.include?(input)
+    anything.each_char.with_index do |ch, idx|
+      puts "#{ch} #{idx}"
+      if ch == input
+        temp[idx] = ch
+      end
+    end
+  else
+    "word does not have #{get_input}"
+  end
+end
